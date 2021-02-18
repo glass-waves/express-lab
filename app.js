@@ -15,6 +15,13 @@ app.get('/module/:id', (req, res) => {
     res.json(selectedModule)
 })
 
+app.get('/sortby/:sort', (req, res) => {
+    const sortModules = [...modules]
+    const sort = req.params.sort
+    sortModules.sort((a, b) => a[sort] - b[sort])
+    res.json(sortModules)
+})
+
 module.exports = {
     app
 } 
