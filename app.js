@@ -11,7 +11,8 @@ app.get('/', (req, res) => {
 
 app.get('/module/:id', (req, res) => {
     const id = req.params.id;
-    const selectedModule = modules.find(module => module.id === id)
+    const selectedModule = [];
+    selectedModule.push(modules.find(module => module.id === id))
     res.json(selectedModule)
 })
 
