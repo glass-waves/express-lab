@@ -21,6 +21,11 @@ app.get('/sortby/:sort', (req, res) => {
     sortModules.sort((a, b) => a[sort] - b[sort])
     res.json(sortModules)
 })
+app.get('/instock', (req, res) => {
+    const selectedModules = modules.filter(module => module.inStock === true)
+    res.json(selectedModules)
+})
+
 
 module.exports = {
     app
